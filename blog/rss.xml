@@ -4,7 +4,7 @@
         <title>Rancher Government Hauler Blog</title>
         <link>https://rancherfederal.github.io/hauler-docs/blog</link>
         <description>Rancher Government Hauler Blog</description>
-        <lastBuildDate>Fri, 03 Nov 2023 23:39:47 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Nov 2023 20:54:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Welcome]]></title>
             <link>https://rancherfederal.github.io/hauler-docs/blog/welcome</link>
             <guid>https://rancherfederal.github.io/hauler-docs/blog/welcome</guid>
-            <pubDate>Fri, 03 Nov 2023 23:39:47 GMT</pubDate>
+            <pubDate>Sat, 04 Nov 2023 20:54:35 GMT</pubDate>
             <description><![CDATA[Welcome to the Blog for Rancher Government Hauler. Please check back later for updates!]]></description>
             <content:encoded><![CDATA[<p>Welcome to the Blog for Rancher Government Hauler. Please check back later for updates!</p>]]></content:encoded>
             <category>informational</category>
