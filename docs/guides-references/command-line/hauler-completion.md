@@ -6,7 +6,7 @@ sidebar_label: Hauler Completion
 
 ### Command Overview
 
-* Generate an autocompletion script for hauler for the specified shell.
+* The completion command generates completion scripts for various shells.
 
 ```yaml
 Usage:
@@ -30,32 +30,24 @@ Use "hauler completion [command] --help" for more information about a command.
 
 #### `hauler completion bash`:
 
-* Generate the autocompletion script for the bash shell.
-  * **Note:** This script depends on the 'bash-completion' package.
+* The completion command generates completion scripts for bash.
 
 ```yaml
-To load completions in your current shell session:
-
-        source <(hauler completion bash)
-
-To load completions for every new session, execute once:
-
-#### Linux:
-
-        hauler completion bash > /etc/bash_completion.d/hauler
-
-#### macOS:
-
-        hauler completion bash > $(brew --prefix)/etc/bash_completion.d/hauler
-
-You will need to start a new shell for this setup to take effect.
-
 Usage:
-  hauler completion bash
+  hauler completion bash [flags]
+
+Examples:
+To load completion run
+
+        . <(hauler completion bash)
+
+        To configure your bash shell to load completions for each session add to your bashrc
+
+        # ~/.bashrc or ~/.profile
+        command -v hauler >/dev/null && . <(hauler completion bash)
 
 Flags:
-  -h, --help              help for bash
-      --no-descriptions   disable completion descriptions
+  -h, --help   help for bash
 
 Global Flags:
   -l, --log-level string    (default "info")
@@ -63,25 +55,21 @@ Global Flags:
 
 #### `hauler completion fish`:
 
-* Generate the autocompletion script for the fish shell.
+* The completion command generates completion scripts for fish.
 
 ```yaml
-To load completions in your current shell session:
-
-        hauler completion fish | source
-
-To load completions for every new session, execute once:
-
-        hauler completion fish > ~/.config/fish/completions/hauler.fish
-
-You will need to start a new shell for this setup to take effect.
-
 Usage:
   hauler completion fish [flags]
 
+Examples:
+To configure your fish shell to load completions for each session write this script to your completions dir:
+
+        hauler completion fish > ~/.config/fish/completions/hauler.fish
+
+        See http://fishshell.com/docs/current/index.html#completion-own for more details
+
 Flags:
-  -h, --help              help for fish
-      --no-descriptions   disable completion descriptions
+  -h, --help   help for fish
 
 Global Flags:
   -l, --log-level string    (default "info")
@@ -89,22 +77,31 @@ Global Flags:
 
 #### `hauler completion powershell`:
 
-* Generate the autocompletion script for powershell.
+* The completion command generates completion scripts for powershell.
 
 ```yaml
-To load completions in your current shell session:
-
-        hauler completion powershell | Out-String | Invoke-Expression
-
-To load completions for every new session, add the output of the above command
-to your powershell profile.
-
 Usage:
   hauler completion powershell [flags]
 
+Examples:
+To load completion run
+
+        . <(hauler completion powershell)
+
+        To configure your powershell shell to load completions for each session add to your powershell profile
+
+        Windows:
+
+        cd "$env:USERPROFILE\Documents\WindowsPowerShell\Modules"
+        hauler completion powershell >> hauler-completion.ps1
+
+        Linux:
+
+        cd "${XDG_CONFIG_HOME:-"$HOME/.config/"}/powershell/modules"
+        hauler completion powershell >> hauler-completions.ps1
+
 Flags:
-  -h, --help              help for powershell
-      --no-descriptions   disable completion descriptions
+  -h, --help   help for powershell
 
 Global Flags:
   -l, --log-level string    (default "info")
@@ -112,32 +109,33 @@ Global Flags:
 
 #### `hauler completion zsh`:
 
-* Generate the autocompletion script for the zsh shell.
-  * **Note:** If shell completion is not already enabled in your environment you will need to enable it.
+* The completion command generates completion scripts for zsh.
 
 ```yaml
-To load completions in your current shell session:
-
-        source <(hauler completion zsh)
-
-To load completions for every new session, execute once:
-
-#### Linux:
-
-        hauler completion zsh > "${fpath[1]}/_hauler"
-
-#### macOS:
-
-        hauler completion zsh > $(brew --prefix)/share/zsh/site-functions/_hauler
-
-You will need to start a new shell for this setup to take effect.
-
 Usage:
   hauler completion zsh [flags]
 
+Examples:
+To load completion run
+
+        . <(hauler completion zsh)
+
+        To configure your zsh shell to load completions for each session add to your zshrc
+
+        # ~/.zshrc or ~/.profile
+        command -v hauler >/dev/null && . <(hauler completion zsh)
+
+        or write a cached file in one of the completion directories in your ${fpath}:
+
+        echo "${fpath// /\n}" | grep -i completion
+        hauler completion zsh > _hauler
+
+        mv _hauler ~/.oh-my-zsh/completions  # oh-my-zsh
+        mv _hauler ~/.zprezto/modules/completion/external/src/  # zprezto
+
 Flags:
-  -h, --help              help for zsh
-      --no-descriptions   disable completion descriptions
+  -h, --help   help for zsh
 
 Global Flags:
+  -l, --log-level string    (default "info")
 ```

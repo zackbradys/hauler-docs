@@ -6,7 +6,7 @@ sidebar_label: Hauler
 
 ### Command Overview
 
-* Interact with Hauler's command line.
+* Airgap Swiss Army Knife
 
 ```yaml
 Usage:
